@@ -14,27 +14,27 @@ import Link from 'next/link';
 
 const icons = [
   {
-    path: '/',
+    path: 'https://www.linkedin.com/in/divyalakshmi-vrps',
     name: <RiLinkedinFill />,
   },
   {
-    path: '/',
+    path: 'https://github.com/Divyatech-hub',
     name: <RiGithubFill />,
   },
+  // {
+  //   path: '/',
+  //   name: <RiInstagramFill />,
+  // },
   {
-    path: '/',
-    name: <RiInstagramFill />,
-  },
-  {
-    path: '/',
+    path: 'https://g.dev/divyalakshmivrps',
     name: <RiGoogleFill />,
   },
+  // {
+  //   path: '/',
+  //   name: <RiFacebookFill />,
+  // },
   {
-    path: '/',
-    name: <RiFacebookFill />,
-  },
-  {
-    path: '/',
+    path: 'https://devpost.com/divyalakshmi5804?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav',
     name: <RiCodeFill />,
   }
 ]

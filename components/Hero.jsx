@@ -7,6 +7,7 @@ import {
   RiTeamFill,
   RiTodoFill,
   RiArrowDownSLine,
+  RiAwardLine,
 } from 'react-icons/ri'
 
 
@@ -25,24 +26,26 @@ const Hero = () => {
         justify-center mx-auto xl:mx-0 text-center xl:text-left '>
           <div className='text-sm uppercase font-semibold mb-4 text-primary
           tracking-[4px]'>
-            AI, Data, and Web3 enthusiast
+            Cloud, Networks, and AI enthusiast
           </div>
           <h1 className='h1'>Hello, I'm Divyalakshmi V.P.</h1>
           <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
-            CS Undergrad, Michigan State University. Add more info hereeeeee 
+            CS + Math @ Michigan State University | Google Women TechMakers Ambassador | GDG MSU President | Leader | Innovator
           </p>
 
             {/* Buttons */}
             <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
-              <Link href='/contact'>
+              <Link href='mailto:divyalakshmi5804@gmail.com'>
                 <Button className= 'gap-x-2'>
                   Contact me <Send size={18} />
                 </Button>
               </Link>
-              <Button variant= 'secondary' className= 'gap-x-2'>
+              <Link href='../Divyalakshmi V Sudha - Resume.pdf'>
+                <Button variant= 'secondary' className= 'gap-x-2'>
                   Download CV
                   <Download size={18} />
                 </Button>
+              </Link>
             </div>
             {/* socials */}
             <Socials containerStyles='flex gap-x-6 mx-auto xl:mx-0'
@@ -51,12 +54,48 @@ const Hero = () => {
 
         {/* image */}
         <div className='hidden xl:flex relative'>
-          <div className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2'>
-            <DevImg />
-          </div>
+            <div className='relative w-[510px] h-[500px]'>
+              <div className='bg-hero_shape2_light w-full h-full bg-no-repeat absolute top-0 right-0'></div>
+              <div className='bg-hero_shape dark:bg-hero_shape_dark w-full h-full bg-no-repeat absolute top-0 right-0'></div>
+              <DevImg
+                containerStyles="absolute top-0 left-20 w-[350px] h-[520px] bg-no-repeat bg-bottom -mt-[55px]"
+                imgSrc="/hero/divya-developer-1.png"
+              />
+            </div>
+          {/* badge 1*/}
+          <Badge 
+          containerStyles='absolute top-[24%] -left-[5rem]'
+          icon={<RiBriefcase4Fill />} 
+          endCountNum={3} 
+          badgeText="Hackathon Wins"
+          />
+
+          {/* badge 2*/}
+          <Badge 
+          containerStyles='absolute top-[80%] -left-[1rem]'
+          icon={<RiTodoFill />} 
+          endCountNum={20} 
+          badgeText="Projects"
+          />
+
+          {/* badge 3*/}
+          <Badge 
+          containerStyles='absolute top-[55%] -right-8'
+          icon={<RiAwardLine />} 
+          endCountNum={4} 
+          badgeText=" Global Awards"
+          />
+
+          {/* badge 4*/}
+          <Badge 
+          containerStyles='absolute top-[10%] -right-12'
+          icon={<RiTeamFill />} 
+          endCountNum={5} 
+          badgeText="Internships and Jobs"
+          />
         </div>
       </div>
-      {/* icon */}
+      {/* icon */}     
       <div className='hidden md:flex absolute left-2/4 
       bottom-44 xl:bottom-12 animate-bounce'>
         < RiArrowDownSLine className='text-3xl text-primary'/>
