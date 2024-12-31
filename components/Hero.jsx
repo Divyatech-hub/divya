@@ -29,12 +29,11 @@ const Hero = () => {
           </div>
           <h1 className='h1'>Hello, I'm Divyalakshmi V.P.</h1>
           <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
-            CS Undergrad, Michigan State University. 
+            CS Undergrad, Michigan State University. Add more info hereeeeee 
           </p>
 
             {/* Buttons */}
-            <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto 
-            xl:mx-0 mb-12'>
+            <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
               <Link href='/contact'>
                 <Button className= 'gap-x-2'>
                   Contact me <Send size={18} />
@@ -45,10 +44,17 @@ const Hero = () => {
                   <Download size={18} />
                 </Button>
             </div>
+            {/* socials */}
+            <Socials containerStyles='flex gap-x-6 mx-auto xl:mx-0'
+            iconStyles='text-foreground text-[22px] hover:text-primary transition-all'/>
         </div>
 
         {/* image */}
-        <div className='hidden xl:flex relative'>image</div>
+        <div className='hidden xl:flex relative'>
+          <div className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2'>
+            <DevImg />
+          </div>
+        </div>
       </div>
       {/* icon */}
       <div className='hidden md:flex absolute left-2/4 
