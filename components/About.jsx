@@ -56,7 +56,141 @@ const qualificationData = [
 
 const skillsData = [
     {
-        title:'skills'
+        title:'skills',
+        data: [
+            {
+                imgPath: 'Python',
+            },
+            {
+                imgPath: 'C++',
+            },
+            {
+                imgPath: 'C',
+            },
+            {
+                imgPath: 'HTML5',
+            },
+            {
+                imgPath: 'CSS3',
+            },
+            {
+                imgPath: 'Javascript',
+            },
+            {
+                imgPath: 'Typescript',
+            },
+            {
+                imgPath: 'Go',
+            },
+            {
+                imgPath: 'Terraform',
+            },
+            {
+                imgPath: 'Dart',
+            },
+            {
+                imgPath: 'React.js',
+            },
+            {
+                imgPath: 'Next.js',
+            },
+            {
+                imgPath: 'Material UI',
+            },
+            {
+                imgPath: 'Tailwind CSS',
+            },
+            {
+                imgPath: 'Bootstrap',
+            },
+            {
+                imgPath: 'Flutter',
+            },
+            {
+                imgPath: 'Git',
+            },
+            {
+                imgPath: 'Github',
+            },
+            {
+                imgPath: 'Linux',
+            },
+            {
+                imgPath: 'Power BI',
+            },
+            {
+                imgPath: 'Amazon Web Services',
+            },
+            {
+                imgPath: 'Google Cloud Platform',
+            },
+            {
+                imgPath: 'REST APIs',
+            }, 
+            {
+                imgPath: 'Websockets',
+            }, 
+            {
+                imgPath: 'Microsoft Azure',
+            },
+            {
+                imgPath: 'MySQL',
+            },
+            {
+                imgPath: 'MongoDB',
+            },
+            {
+                imgPath: 'Shell Scripting',
+            },
+            {
+                imgPath: 'Kubernetes',
+            },
+            {
+                imgPath: 'CI/CD',
+            },
+            {
+                imgPath: 'Docker',
+            },
+            {
+                imgPath: 'Gemini AI API',
+            },
+            {
+                imgPath: 'Langchain',
+            },
+            {
+                imgPath: 'Machine Learning',
+            },
+            {
+                imgPath: 'Firebase',
+            },
+            {
+                imgPath: 'Prometheus',
+            },
+            {
+                imgPath: 'Grafana',
+            },
+            {
+                imgPath: 'Flux',
+            },
+            {
+                imgPath: 'Nginx',
+            },
+            {
+                imgPath: 'Helm',
+            },
+            {
+                imgPath: 'Trello',
+            },
+            {
+                imgPath: 'Project Management',
+            },
+            {
+                imgPath: 'Figma',
+            },
+            {
+                imgPath: 'Vercel',
+            }
+        ]
 
     }
 ];
