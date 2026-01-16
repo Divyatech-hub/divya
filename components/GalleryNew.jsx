@@ -10,8 +10,8 @@ export default function GalleryNew() {
 
   return (
     <section className="bg-black text-white py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="text-5xl md:text-6xl font-black mb-16 tracking-tight">Gallery</h2>
+      <div className="max-w-5xl mx-auto px-3 md:px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight">Gallery</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
           {photos.map((photo, idx) => (

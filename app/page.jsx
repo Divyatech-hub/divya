@@ -5,8 +5,6 @@ import HeroNew from '@/components/HeroNew';
 import AboutNew from '@/components/AboutNew';
 import ExperienceNew from '@/components/ExperienceNew';
 import ProjectsNew from '@/components/ProjectsNew';
-import HackathonsNew from '@/components/HackathonsNew';
-import AwardsNew from '@/components/AwardsNew';
 import SkillsNew from '@/components/SkillsNew';
 import FooterNew from '@/components/FooterNew';
 
@@ -18,8 +16,6 @@ export default function Home() {
       <AboutNew />
       <ExperienceNew />
       <ProjectsNew />
-      <HackathonsNew />
-      <AwardsNew />
       <SkillsNew />
       <FooterNew />
     </main>

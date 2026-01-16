@@ -10,8 +10,8 @@ export default function AwardsNew() {
 
   return (
     <section className="bg-black text-white py-16 md:py-20">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
-        <h2 className="text-5xl md:text-6xl font-black mb-12 tracking-tight">Awards & Achievements</h2>
+      <div className="max-w-5xl mx-auto px-3 md:px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 tracking-tight">Awards & Achievements</h2>
         
         <div className="space-y-6">
           {awards.map((award, idx) => (

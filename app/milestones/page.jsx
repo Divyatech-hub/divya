@@ -1,12 +1,14 @@
 import HeaderNew from '@/components/HeaderNew';
-import ProjectsGridNew from '@/components/ProjectsGridNew';
+import HackathonsNew from '@/components/HackathonsNew';
+import AwardsNew from '@/components/AwardsNew';
 import FooterNew from '@/components/FooterNew';
 
-export default function ProjectsPage() {
+export default function MilestonesPage() {
   return (
     <div className="bg-black">
       <HeaderNew />
-      <ProjectsGridNew />
+      <HackathonsNew />
+      <AwardsNew />
       <FooterNew />
     </div>
   );

@@ -21,6 +21,12 @@ export default function HeaderNew() {
           <Link href="/projects" className="text-sm font-medium text-gray-400 hover:text-white transition pb-2 border-b-2 border-transparent hover:border-blue-400">
             My Projects
           </Link>
+          <Link href="/gallery" className="text-sm font-medium text-gray-400 hover:text-white transition pb-2 border-b-2 border-transparent hover:border-blue-400">
+            Gallery
+          </Link>
+          <Link href="/milestones" className="text-sm font-medium text-gray-400 hover:text-white transition pb-2 border-b-2 border-transparent hover:border-blue-400">
+            Milestones
+          </Link>
           <a href="mailto:divyalakshmi5804@gmail.com" className="text-sm font-medium text-gray-400 hover:text-white transition pb-2 border-b-2 border-transparent hover:border-blue-400">
             Contact
           </a>

@@ -47,8 +47,8 @@ export default function AboutNew() {
 
   return (
     <section className="bg-black text-white py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">About me</h2>
+      <div className="max-w-5xl mx-auto px-3 md:px-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">About me</h2>
         <p className="text-gray-400 mb-16 max-w-2xl text-lg">
           CS + Math student building AI products. Cloud & Networks enthusiast. Passionate about creating innovative solutions.
         </p>

@@ -37,11 +37,11 @@ export default function ProjectsNew() {
 
   return (
     <section className="bg-black text-white py-16 md:py-20">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
-        <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">Featured Projects</h2>
+      <div className="max-w-5xl mx-auto px-3 md:px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Featured Projects</h2>
         <p className="text-gray-400 mb-12 max-w-2xl">Check out some of my recent work.</p>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
             <div key={idx} className="group cursor-pointer h-full">
               <div className="border border-gray-800 rounded-lg overflow-hidden hover:border-white transition duration-300 h-full flex flex-col">

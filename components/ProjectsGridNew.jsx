@@ -57,58 +57,37 @@ export default function ProjectsGridNew() {
 
   return (
     <section className="bg-black text-white py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h1 className="text-4xl md:text-5xl font-black mb-3 tracking-tight">Projects</h1>
+      <div className="max-w-5xl mx-auto px-3 md:px-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Projects</h1>
         <p className="text-gray-400 text-sm mb-12 max-w-2xl">Check out some of my projects here</p>
         
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
-            <div key={idx} className="group flex flex-col md:flex-row gap-6 items-start">
-              {/* Image */}
-              <div className="w-full md:w-64 flex-shrink-0">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg aspect-video md:aspect-square flex items-center justify-center text-5xl group-hover:scale-105 transition duration-300">
+            <div key={idx} className="group cursor-pointer h-full">
+              <div className="border border-gray-800 rounded-lg overflow-hidden hover:border-white transition duration-300 h-full flex flex-col">
+                {/* Thumbnail */}
+                <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-40 md:h-48 flex items-center justify-center text-5xl md:text-6xl group-hover:scale-110 transition duration-300">
                   {project.image}
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="flex-1">
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tags.slice(0, 2).map((tag, i) => (
-                    <span key={i} className="text-xs px-2 py-1 bg-gray-900 text-gray-300 rounded border border-gray-700">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Title and Date */}
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-2">
+                {/* Content */}
+                <div className="p-4 flex flex-col flex-grow">
+                  {project.award && (
+                    <span className="inline-block text-xs font-bold text-yellow-400 mb-2 w-fit">★ {project.award}</span>
+                  )}
                   <Link href={project.link} target="_blank">
-                    <h2 className="text-xl md:text-2xl font-black group-hover:text-blue-400 transition cursor-pointer">
-                      {project.name}
-                    </h2>
+                    <h3 className="text-lg md:text-xl font-black mb-1 group-hover:text-blue-400 transition cursor-pointer">{project.name}</h3>
                   </Link>
-                  <span className="text-xs md:text-sm text-blue-400 font-bold whitespace-nowrap">{project.date}</span>
-                </div>
-
-                {/* Award */}
-                {project.award && (
-                  <p className="text-xs text-yellow-400 font-bold mb-2">★ {project.award}</p>
-                )}
-
-                {/* Description */}
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* All Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="text-xs px-2 py-1 border border-gray-700 text-gray-400 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
+                  <p className="text-gray-400 mb-3 text-xs md:text-sm flex-grow">{project.description}</p>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="text-xs font-semibold text-gray-500 border border-gray-700 rounded-full px-2 py-1">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
