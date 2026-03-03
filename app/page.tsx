@@ -9,7 +9,7 @@ export default function Home() {
           <div className="text-2xl font-bold neon-gradient">DVP</div>
           <div className="hidden md:flex gap-8 text-sm font-mono">
             {/* <a href="#identity" className="link-underline">IDENTITY</a> */}
-            <a href="#projects" className="link-underline">PROJECTS</a>
+            <a href="/projects" className="link-underline">PROJECTS</a>
             <a href="#awards" className="link-underline">AWARDS</a>
             <a href="#experience" className="link-underline">EXPERIENCE</a>
             <a href="#interface" className="link-underline">CONTACT</a>
@@ -84,9 +84,14 @@ export default function Home() {
       <section id="projects" className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-16">
-            <div className="space-y-4">
-              <h2 className="text-5xl magenta-lead">// PROJECTS</h2>
-              <p className="text-gray-400 font-mono text-sm">// Featured work in AI, systems, and cloud computing</p>
+            <div className="space-y-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-5xl magenta-lead">// PROJECTS</h2>
+                <p className="text-gray-400 font-mono text-sm">// Featured work in AI, systems, and cloud computing</p>
+              </div>
+              <a href="/projects" className="neon-border-magenta px-6 py-3 hover-lift font-mono text-sm text-magenta-400 inline-block whitespace-nowrap">
+                SEE ALL →
+              </a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -150,11 +155,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center pt-12">
-              <a href="/projects" className="neon-border-magenta px-6 py-3 hover-lift font-mono text-sm text-magenta-400 inline-block">
-                SEE ALL PROJECTS →
-              </a>
-            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,156 @@
 'use client';
 
+import { useState, useMemo } from 'react';
+
 export default function ProjectsPage() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+
+  const projects = [
+    {
+      title: 'Pill Pal',
+      desc: 'Innovative health management solution for pill tracking and medication reminders',
+      tech: ['HEALTH_TECH', 'FULL_STACK', 'INNOVATION'],
+      img: '/PillPall-thumbnail.png',
+      link: 'https://github.com/StephanieNhiLe/pill-pal',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'MoodMelody.AI',
+      desc: 'AI-powered music generation for TikTok creators using Gemini AI and LangChain',
+      tech: ['AI/LLM', 'GEMINI', 'FLASK', '3RD_PLACE_GLOBAL'],
+      img: '/Moodmelody-thumbnail.png',
+      link: 'https://github.com/StephanieNhiLe/MoodMelody-AI',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'SlugSei – AI Baseball Coach',
+      desc: 'Real-time swing analysis using computer vision and TensorFlow',
+      tech: ['TENSORFLOW', 'OPENCV', 'MEDIAPIPE', 'CLOUD_RUN'],
+      img: '/Slugsei-thumbnail.png',
+      link: 'https://github.com/StephanieNhiLe/slugsei',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'IWD Website',
+      desc: 'International Women\'s Day celebration website showcasing inspiring stories and global impact',
+      tech: ['NEXT.JS', 'TAILWIND', 'REACT', 'DESIGN'],
+      img: '/IWD-2025-Summit-Website-thumbnail.png',
+      link: 'https://iwd-website-2025.vercel.app',
+      linkLabel: 'VISIT WEBSITE'
+    },
+    {
+      title: 'MSU HSPC',
+      desc: 'MSU High School Programming Competition - Annual competitive programming event',
+      tech: ['COMPETITION', 'PROGRAMMING', 'COMPETITIVE'],
+      img: '/MSU-HSPC-thumbnail.png',
+      link: 'https://msuhspc.com',
+      linkLabel: 'VISIT WEBSITE'
+    },
+    {
+      title: 'Crowd Secure',
+      desc: 'Security and crowd management solution leveraging advanced algorithms',
+      tech: ['SECURITY', 'CROWD_MANAGEMENT', 'INNOVATION'],
+      img: '/Crowdsecure-thumbnail.png',
+      link: 'https://github.com/AashishH15/CrowdSecure',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Hypezone',
+      desc: 'AI-powered hyper-personalization platform for tailored experiences',
+      tech: ['AI', 'PERSONALIZATION', 'HACKATHON'],
+      img: '/HypeZone-thumbnail.png',
+      link: 'https://github.com/Grace-Shao/aiatl2025',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Stepergize',
+      desc: 'Ergonomic step tracking and wellness analytics platform',
+      tech: ['HEALTH_TECH', 'ANALYTICS', 'WELLNESS'],
+      img: '/Stepergize-thumbnail.png',
+      link: 'https://github.com/Divyatech-hub/step-ergize',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'ViaLearn',
+      desc: 'Interactive learning platform connecting educators and students',
+      tech: ['EDTECH', 'REACT', 'FULL_STACK'],
+      img: '/placeholder.png',
+      link: 'https://github.com/Via-Learn/MVP/tree/main',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Incluscript.ai',
+      desc: 'AI-powered accessibility tool for scriptwriting and content creation',
+      tech: ['AI', 'ACCESSIBILITY', 'NLPYTHON'],
+      img: '/Incluscript.ai-thumbnail.png',
+      link: 'https://github.com/Sanya1001/shellhacks23',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Joblify',
+      desc: 'AI career companion helping job seekers with applications and preparation',
+      tech: ['AI', 'CAREER_TECH', 'DEVPOST_AWARD'],
+      img: '/Joblify-thumbnail.png',
+      link: 'https://github.com/MAlshaik/Joblify',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Deep Learning-based Pipeline for Single Cell Data',
+      desc: 'Research project benchmarking preprocessing techniques for single cell genomics data using deep learning',
+      tech: ['DEEP_LEARNING', 'BIOINFORMATICS', 'RESEARCH'],
+      img: '/DANCE-thumbnail.png',
+      link: 'https://symposium.foragerone.com/mid-sure2023/presentations/58413',
+      linkLabel: 'VIEW PRESENTATION'
+    },
+    {
+      title: 'OrgaRica',
+      desc: 'Organizational dashboard and management tool for enterprise efficiency',
+      tech: ['ORGANIZATION', 'MANAGEMENT', 'ENTERPRISE'],
+      img: '/OrgaRica-thumbnail.png',
+      link: 'https://docs.google.com/presentation/d/1LqEQw8id-uKmLIlAwgl2ICS29VaF9-qjX_eXqa28lIM/edit?usp=sharing',
+      linkLabel: 'VIEW PRESENTATION'
+    },
+  ];
+
+  // Get all unique skills
+  const allSkills = useMemo(() => {
+    const skillSet = new Set<string>();
+    projects.forEach(project => {
+      project.tech.forEach(skill => skillSet.add(skill));
+    });
+    return Array.from(skillSet).sort();
+  }, []);
+
+  // Filter projects based on search and selected skills
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesSearch = 
+        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.tech.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      const matchesSkills = 
+        selectedSkills.length === 0 || 
+        selectedSkills.some(skill => project.tech.includes(skill));
+
+      return matchesSearch && matchesSkills;
+    });
+  }, [searchQuery, selectedSkills]);
+
+  const toggleSkill = (skill: string) => {
+    setSelectedSkills(prev =>
+      prev.includes(skill)
+        ? prev.filter(s => s !== skill)
+        : [...prev, skill]
+    );
+  };
+
+  const clearFilters = () => {
+    setSearchQuery('');
+    setSelectedSkills([]);
+  };
+
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Navigation */}
@@ -19,7 +169,7 @@ export default function ProjectsPage() {
       {/* PROJECT GALLERY Section */}
       <section className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in pt-32">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-16">
+          <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-6xl font-bold">
                 <span className="text-white">PROJECT</span>
@@ -29,114 +179,56 @@ export default function ProjectsPage() {
               <p className="text-gray-400 font-mono text-sm">// A repository of high-throughput systems, mathematical visualizations, and neural architectures.</p>
             </div>
 
+            {/* Search Bar */}
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search projects, skills, or technologies..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-gray-900 text-white border border-cyan-500 border-opacity-40 rounded-lg px-4 py-3 font-mono text-sm focus:outline-none focus:border-cyan-400 focus:border-opacity-100 transition"
+              />
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-cyan-400">🔍</span>
+            </div>
+
+            {/* Filter by Skills */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-mono text-cyan-400">FILTER BY SKILL</h3>
+                {selectedSkills.length > 0 && (
+                  <button
+                    onClick={clearFilters}
+                    className="text-xs font-mono text-magenta-400 link-underline"
+                  >
+                    CLEAR_ALL
+                  </button>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.map(skill => (
+                  <button
+                    key={skill}
+                    onClick={() => toggleSkill(skill)}
+                    className={`text-xs px-3 py-2 font-mono rounded transition ${
+                      selectedSkills.includes(skill)
+                        ? 'bg-magenta-500 text-black neon-border-magenta'
+                        : 'neon-border-cyan text-cyan-400 hover:bg-cyan-400 hover:text-black'
+                    }`}
+                  >
+                    {skill}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Results Count */}
+            <div className="text-gray-400 font-mono text-sm">
+              // Showing {filteredProjects.length} of {projects.length} projects
+            </div>
+
+            {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Project Card */}
-              {[
-                {
-                  title: 'Pill Pal',
-                  desc: 'Innovative health management solution for pill tracking and medication reminders',
-                  tech: ['HEALTH_TECH', 'FULL_STACK', 'INNOVATION'],
-                  img: '/PillPall-thumbnail.png',
-                  link: 'https://github.com/StephanieNhiLe/pill-pal',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'MoodMelody.AI',
-                  desc: 'AI-powered music generation for TikTok creators using Gemini AI and LangChain',
-                  tech: ['AI/LLM', 'GEMINI', 'FLASK', '3RD_PLACE_GLOBAL'],
-                  img: '/Moodmelody-thumbnail.png',
-                  link: 'https://github.com/StephanieNhiLe/MoodMelody-AI',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'SlugSei – AI Baseball Coach',
-                  desc: 'Real-time swing analysis using computer vision and TensorFlow',
-                  tech: ['TENSORFLOW', 'OPENCV', 'MEDIAPIPE', 'CLOUD_RUN'],
-                  img: '/Slugsei-thumbnail.png',
-                  link: 'https://github.com/StephanieNhiLe/slugsei',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'IWD Website',
-                  desc: 'International Women\'s Day celebration website showcasing inspiring stories and global impact',
-                  tech: ['NEXT.JS', 'TAILWIND', 'REACT', 'DESIGN'],
-                  img: '/IWD-2025-Summit-Website-thumbnail.png',
-                  link: 'https://iwd-website-2025.vercel.app',
-                  linkLabel: 'VISIT WEBSITE'
-                },
-                {
-                  title: 'MSU HSPC',
-                  desc: 'MSU High School Programming Competition - Annual competitive programming event',
-                  tech: ['COMPETITION', 'PROGRAMMING', 'COMPETITIVE'],
-                  img: '/MSU-HSPC-thumbnail.png',
-                  link: 'https://msuhspc.com',
-                  linkLabel: 'VISIT WEBSITE'
-                },
-                {
-                  title: 'Crowd Secure',
-                  desc: 'Security and crowd management solution leveraging advanced algorithms',
-                  tech: ['SECURITY', 'CROWD_MANAGEMENT', 'INNOVATION'],
-                  img: '/Crowdsecure-thumbnail.png',
-                  link: 'https://github.com/AashishH15/CrowdSecure',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'Hypezone',
-                  desc: 'AI-powered hyper-personalization platform for tailored experiences',
-                  tech: ['AI', 'PERSONALIZATION', 'HACKATHON'],
-                  img: '/HypeZone-thumbnail.png',
-                  link: 'https://github.com/Grace-Shao/aiatl2025',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'Stepergize',
-                  desc: 'Ergonomic step tracking and wellness analytics platform',
-                  tech: ['HEALTH_TECH', 'ANALYTICS', 'WELLNESS'],
-                  img: '/Stepergize-thumbnail.png',
-                  link: 'https://github.com/Divyatech-hub/step-ergize',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'ViaLearn',
-                  desc: 'Interactive learning platform connecting educators and students',
-                  tech: ['EDTECH', 'REACT', 'FULL_STACK'],
-                  img: '/placeholder.png',
-                  link: 'https://github.com/Via-Learn/MVP/tree/main',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'Incluscript.ai',
-                  desc: 'AI-powered accessibility tool for scriptwriting and content creation',
-                  tech: ['AI', 'ACCESSIBILITY', 'NLPYTHON'],
-                  img: '/Incluscript.ai-thumbnail.png',
-                  link: 'https://github.com/Sanya1001/shellhacks23',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'Joblify',
-                  desc: 'AI career companion helping job seekers with applications and preparation',
-                  tech: ['AI', 'CAREER_TECH', 'DEVPOST_AWARD'],
-                  img: '/Joblify-thumbnail.png',
-                  link: 'https://github.com/MAlshaik/Joblify',
-                  linkLabel: 'GITHUB'
-                },
-                {
-                  title: 'Deep Learning-based Pipeline for Single Cell Data',
-                  desc: 'Research project benchmarking preprocessing techniques for single cell genomics data using deep learning',
-                  tech: ['DEEP_LEARNING', 'BIOINFORMATICS', 'RESEARCH'],
-                  img: '/DANCE-thumbnail.png',
-                  link: 'https://symposium.foragerone.com/mid-sure2023/presentations/58413',
-                  linkLabel: 'VIEW PRESENTATION'
-                },
-                {
-                  title: 'OrgaRica',
-                  desc: 'Organizational dashboard and management tool for enterprise efficiency',
-                  tech: ['ORGANIZATION', 'MANAGEMENT', 'ENTERPRISE'],
-                  img: '/OrgaRica-thumbnail.png',
-                  link: 'https://docs.google.com/presentation/d/1LqEQw8id-uKmLIlAwgl2ICS29VaF9-qjX_eXqa28lIM/edit?usp=sharing',
-                  linkLabel: 'VIEW PRESENTATION'
-                },
-              ].map((project, i) => (
+              {filteredProjects.map((project, i) => (
                 <div key={i} className="group">
                   <div className="relative overflow-hidden rounded-lg mb-4 glass hover-lift">
                     <div className="relative h-64 w-full">
@@ -155,7 +247,16 @@ export default function ProjectsPage() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((t, j) => (
-                        <span key={j} className="text-xs px-2 py-1 neon-border-cyan rounded">
+                        <span 
+                          key={j} 
+                          className={`text-xs px-2 py-1 rounded cursor-pointer transition ${
+                            selectedSkills.includes(t)
+                              ? 'bg-magenta-500 text-black'
+                              : 'neon-border-cyan'
+                          }`}
+                          onClick={() => toggleSkill(t)}
+                          title="Click to filter by this skill"
+                        >
                           {t}
                         </span>
                       ))}
@@ -174,6 +275,12 @@ export default function ProjectsPage() {
                 </div>
               ))}
             </div>
+
+            {filteredProjects.length === 0 && (
+              <div className="text-center py-12 text-gray-400">
+                <p className="font-mono">NO PROJECTS FOUND MATCHING YOUR FILTERS</p>
+              </div>
+            )}
 
             <div className="text-center pt-12">
               <a href="/" className="text-magenta-400 font-mono text-sm link-underline">← BACK_TO_HOME</a>
