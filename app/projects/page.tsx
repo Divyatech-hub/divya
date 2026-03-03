@@ -29,7 +29,7 @@ export default function ProjectsPage() {
               <p className="text-gray-400 font-mono text-sm">// A repository of high-throughput systems, mathematical visualizations, and neural architectures.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Project Card */}
               {[
                 {
@@ -63,6 +63,78 @@ export default function ProjectsPage() {
                   img: '/IWD-2025-Summit-Website-thumbnail.png',
                   link: 'https://iwd-website-2025.vercel.app',
                   linkLabel: 'VISIT WEBSITE'
+                },
+                {
+                  title: 'MSU HSPC',
+                  desc: 'MSU High School Programming Competition - Annual competitive programming event',
+                  tech: ['COMPETITION', 'PROGRAMMING', 'COMPETITIVE'],
+                  img: '/MSU-HSPC-thumbnail.png',
+                  link: 'https://msuhspc.com',
+                  linkLabel: 'VISIT WEBSITE'
+                },
+                {
+                  title: 'Crowd Secure',
+                  desc: 'Security and crowd management solution leveraging advanced algorithms',
+                  tech: ['SECURITY', 'CROWD_MANAGEMENT', 'INNOVATION'],
+                  img: '/Crowdsecure-thumbnail.png',
+                  link: 'https://github.com/AashishH15/CrowdSecure',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'Hypezone',
+                  desc: 'AI-powered hyper-personalization platform for tailored experiences',
+                  tech: ['AI', 'PERSONALIZATION', 'HACKATHON'],
+                  img: '/HypeZone-thumbnail.png',
+                  link: 'https://github.com/Grace-Shao/aiatl2025',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'Stepergize',
+                  desc: 'Ergonomic step tracking and wellness analytics platform',
+                  tech: ['HEALTH_TECH', 'ANALYTICS', 'WELLNESS'],
+                  img: '/Stepergize-thumbnail.png',
+                  link: 'https://github.com/Divyatech-hub/step-ergize',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'ViaLearn',
+                  desc: 'Interactive learning platform connecting educators and students',
+                  tech: ['EDTECH', 'REACT', 'FULL_STACK'],
+                  img: '/placeholder.png',
+                  link: 'https://github.com/Via-Learn/MVP/tree/main',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'Incluscript.ai',
+                  desc: 'AI-powered accessibility tool for scriptwriting and content creation',
+                  tech: ['AI', 'ACCESSIBILITY', 'NLPYTHON'],
+                  img: '/Incluscript.ai-thumbnail.png',
+                  link: 'https://github.com/Sanya1001/shellhacks23',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'Joblify',
+                  desc: 'AI career companion helping job seekers with applications and preparation',
+                  tech: ['AI', 'CAREER_TECH', 'DEVPOST_AWARD'],
+                  img: '/Joblify-thumbnail.png',
+                  link: 'https://github.com/MAlshaik/Joblify',
+                  linkLabel: 'GITHUB'
+                },
+                {
+                  title: 'Deep Learning-based Pipeline for Single Cell Data',
+                  desc: 'Research project benchmarking preprocessing techniques for single cell genomics data using deep learning',
+                  tech: ['DEEP_LEARNING', 'BIOINFORMATICS', 'RESEARCH'],
+                  img: '/DANCE-thumbnail.png',
+                  link: 'https://symposium.foragerone.com/mid-sure2023/presentations/58413',
+                  linkLabel: 'VIEW PRESENTATION'
+                },
+                {
+                  title: 'OrgaRica',
+                  desc: 'Organizational dashboard and management tool for enterprise efficiency',
+                  tech: ['ORGANIZATION', 'MANAGEMENT', 'ENTERPRISE'],
+                  img: '/OrgaRica-thumbnail.png',
+                  link: 'https://docs.google.com/presentation/d/1LqEQw8id-uKmLIlAwgl2ICS29VaF9-qjX_eXqa28lIM/edit?usp=sharing',
+                  linkLabel: 'VIEW PRESENTATION'
                 },
               ].map((project, i) => (
                 <div key={i} className="group">
