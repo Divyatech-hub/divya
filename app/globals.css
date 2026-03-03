@@ -126,6 +126,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: var(--glow-cyan);
@@ -143,8 +152,17 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeUp 0.6s ease-out;
 }
 
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Sections */
+section {
+  transition: all 0.6s ease-out;
 }
 
 /* Hover Effects */

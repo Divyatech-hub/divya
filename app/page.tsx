@@ -18,7 +18,7 @@ export default function Home() {
       </nav>
 
       {/* IDENTITY Section */}
-      <section id="identity" className="min-h-screen flex items-center justify-center px-6 py-20 pt-32">
+      <section id="identity" className="min-h-screen flex items-center justify-center px-6 py-20 pt-32 animate-fade-in">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* PROJECT_REPOSITORY Section */}
-      <section id="projects" className="py-32 px-6 bg-gradient-to-b from-black via-gray-950 to-black">
+      <section id="projects" className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-16">
             <div className="space-y-4">
@@ -93,22 +93,28 @@ export default function Home() {
               {/* Project Card */}
               {[
                 {
+                  title: 'Pill Pal',
+                  desc: 'Innovative health management solution for pill tracking and medication reminders',
+                  tech: ['HEALTH_TECH', 'FULL_STACK', 'INNOVATION'],
+                  img: '/PillPall-thumbnail.png',
+                  link: 'https://github.com/StephanieNhiLe/pill-pal',
+                  linkLabel: 'GITHUB'
+                },
+                {
                   title: 'MoodMelody.AI',
                   desc: 'AI-powered music generation for TikTok creators using Gemini AI and LangChain',
                   tech: ['AI/LLM', 'GEMINI', 'FLASK', '3RD_PLACE_GLOBAL'],
-                  img: '/moodmelody.jpg'
+                  img: '/Moodmelody-thumbnail.png',
+                  link: 'https://github.com/StephanieNhiLe/MoodMelody-AI',
+                  linkLabel: 'GITHUB'
                 },
                 {
                   title: 'SlugSei – AI Baseball Coach',
                   desc: 'Real-time swing analysis using computer vision and TensorFlow',
                   tech: ['TENSORFLOW', 'OPENCV', 'MEDIAPIPE', 'CLOUD_RUN'],
-                  img: '/slugsei.jpg'
-                },
-                {
-                  title: 'PillPal AI',
-                  desc: 'Accessible medication management for underserved communities using LLMs',
-                  tech: ['LANGCHAIN', 'OPENAI', 'FASTAPI', 'REACT_NATIVE'],
-                  img: '/pillpal.jpg'
+                  img: '/Slugsei-thumbnail.png',
+                  link: 'https://github.com/StephanieNhiLe/slugsei',
+                  linkLabel: 'GITHUB'
                 },
               ].map((project, i) => (
                 <div key={i} className="group cursor-pointer">
@@ -129,16 +135,32 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
+                    <div className="pt-4">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-xs font-mono text-magenta-400 neon-border-magenta px-3 py-2 hover-lift transition"
+                      >
+                        {project.linkLabel} ↗
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="text-center pt-12">
+              <a href="/projects" className="neon-border-magenta px-6 py-3 hover-lift font-mono text-sm text-magenta-400 inline-block">
+                SEE ALL PROJECTS →
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* ACCOLADES & IMPACT Section */}
-      <section id="awards" className="py-32 px-6">
+      <section id="awards" className="py-20 px-6 animate-fade-in">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="space-y-4">
             <h2 className="text-5xl magenta-lead">// AWARDS AND MILESTONES</h2>
@@ -185,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* EXPERIENCE Section */}
-      <section id="experience" className="py-32 px-6 bg-gradient-to-b from-black via-gray-950 to-black">
+      <section id="experience" className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="space-y-4">
             <h2 className="text-5xl magenta-lead">// EXPERIENCE</h2>
@@ -194,51 +216,126 @@ export default function Home() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-magenta-500 transform md:-translate-x-1/2"></div>
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 to-magenta-500 -translate-x-1/2"></div>
 
             <div className="space-y-16">
               {[
                 {
                   company: 'NUCOR STEEL',
-                  logo: '/nucor-logo.jpg',
+                  logo: '/nucor logo.png',
                   role: 'Software Automation Intern',
                   period: '2024 - PRESENT',
                   desc: 'Building intelligent onboarding tools using Copilot Studio, Azure, and C3 AI for manufacturing safety',
-                  side: 'right'
-                },
-                {
-                  company: 'TECHSMITH',
-                  logo: '/techsmith-logo.jpg',
-                  role: 'Site Reliability Engineer (SRE)',
-                  period: '2023 - 2024',
-                  desc: 'Managed cloud infrastructure, DevOps pipelines, and infrastructure-as-code deployments',
                   side: 'left'
                 },
                 {
+                  company: 'TECHSMITH',
+                  logo: '/techsmith logo.jpeg',
+                  role: 'Site Reliability Engineer (SRE)',
+                  period: '2023 - 2024',
+                  desc: 'Managed cloud infrastructure, DevOps pipelines, and infrastructure-as-code deployments',
+                  side: 'right'
+                },
+                {
                   company: 'BREAK THROUGH TECH AI',
-                  logo: '/bt-ai-logo.jpg',
+                  logo: '/BTT logo.png',
                   role: 'AI Fellow',
                   period: '2024 - PRESENT',
                   desc: 'Advanced ML training through ML Foundations + AI Studio programs focusing on real-world AI applications',
+                  side: 'left'
+                },
+                {
+                  company: 'GOOGLE DEVELOPER GROUPS',
+                  logo: '/gdg logo.png',
+                  role: 'MSU Lead',
+                  period: '2024 - PRESENT',
+                  desc: 'Leading developer community for Google technologies at Michigan State University',
                   side: 'right'
                 },
+                {
+                  company: 'WOMEN TECHMAKERS',
+                  logo: '/wtm logo.png',
+                  role: 'Community Lead',
+                  period: '2023 - PRESENT',
+                  desc: 'Empowering women in technology and leadership',
+                  side: 'left'
+                },
+                {
+                  company: 'TP CONNECTS',
+                  logo: '/tpc connects logo.png',
+                  role: 'Advisory Board Member',
+                  period: '2024 - PRESENT',
+                  desc: 'Supporting community connections and professional development',
+                  side: 'right'
+                },
+                {
+                  company: 'MSU ICER',
+                  logo: '/icer logo.png',
+                  role: 'Member',
+                  period: '2023 - 2025',
+                  desc: 'Introducing Computing & Engineering Research',
+                  side: 'left'
+                },
+                {
+                  company: 'MSU HONORS COLLEGE',
+                  logo: '/msu honors college.jpg',
+                  role: 'Student',
+                  period: '2021 - 2025',
+                  desc: 'Honors College scholar at Michigan State University',
+                  side: 'right'
+                },
+                {
+                  company: 'MSU COLLEGE OF ENGINEERING',
+                  logo: '/msu college of eng.jpeg',
+                  role: 'Student',
+                  period: '2021 - 2025',
+                  desc: 'B.S. Computer Science with Math & Entrepreneurship Minors',
+                  side: 'left'
+                },
               ].map((exp, i) => (
-                <div key={i} className={`flex items-center ${exp.side === 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className="flex-1 hidden md:block"></div>
-                  
-                  {/* Timeline Dot */}
-                  <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 md:translate-x-0 w-8 h-8 bg-black border-2 border-cyan-400 rounded-full flex items-center justify-center z-10">
-                    <div className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-cyan-400' : i === 1 ? 'bg-magenta-400' : 'bg-cyan-400'}`}></div>
-                  </div>
-
-                  <div className={`flex-1 ${exp.side === 'right' ? 'mr-12 text-right' : 'ml-12'}`}>
-                    <div className="space-y-2">
-                      <p className="text-gray-400 font-mono text-xs">{exp.period}</p>
-                      <h3 className="text-xl font-bold text-cyan-400">{exp.role}</h3>
-                      <p className="text-magenta-400 font-semibold">{exp.company}</p>
-                      <p className="text-gray-300 text-sm mt-2">{exp.desc}</p>
+                <div key={i} className="relative flex items-start gap-8">
+                  {/* Circle on center */}
+                  <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2">
+                    <div className="relative w-16 h-16 rounded-full bg-black border border-cyan-400/80 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                        <img src={exp.logo} alt={`${exp.company} logo`} className="w-full h-full object-cover" />
+                      </div>
                     </div>
                   </div>
+
+                  {/* Left Side Card */}
+                  {exp.side === 'left' && (
+                    <div className="w-1/2 pr-16">
+                      <div className="relative">
+                        <span className="absolute top-6 h-px w-16 -right-16 bg-gradient-to-r from-cyan-400 to-magenta-400"></span>
+                        <div className="glass rounded-2xl p-6 hover-lift neon-border-cyan">
+                          <div className="flex flex-col items-end gap-2">
+                            <span className="text-gray-400 font-mono text-xs tracking-widest">{exp.period}</span>
+                            <h3 className="text-xl font-bold text-cyan-400 text-right">{exp.role}</h3>
+                            <p className="text-magenta-400 font-semibold text-right">{exp.company}</p>
+                          </div>
+                          <p className="text-gray-300 text-sm mt-3 text-right">{exp.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Right Side Card */}
+                  {exp.side === 'right' && (
+                    <div className="w-1/2 pl-16 ml-auto">
+                      <div className="relative">
+                        <span className="absolute top-6 h-px w-16 -left-16 bg-gradient-to-r from-cyan-400 to-magenta-400"></span>
+                        <div className="glass rounded-2xl p-6 hover-lift neon-border-magenta">
+                          <div className="flex flex-col items-start gap-2">
+                            <span className="text-gray-400 font-mono text-xs tracking-widest">{exp.period}</span>
+                            <h3 className="text-xl font-bold text-cyan-400 text-left">{exp.role}</h3>
+                            <p className="text-magenta-400 font-semibold text-left">{exp.company}</p>
+                          </div>
+                          <p className="text-gray-300 text-sm mt-3 text-left">{exp.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -263,7 +360,7 @@ export default function Home() {
       </section>
 
       {/* GALLERY Section */}
-      <section id="gallery" className="py-32 px-6">
+      <section id="gallery" className="py-20 px-6 animate-fade-in">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="space-y-4">
             <h2 className="text-5xl magenta-lead">// PHOTO GALLERY</h2>
@@ -289,7 +386,7 @@ export default function Home() {
       </section>
 
       {/* INTERFACE / Contact Section */}
-      <section id="interface" className="py-32 px-6">
+      <section id="interface" className="py-20 px-6 animate-fade-in">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-4">
             <h2 className="text-6xl font-bold">
