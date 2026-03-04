@@ -11,7 +11,9 @@ export default function Home() {
             {/* <a href="#identity" className="link-underline">IDENTITY</a> */}
             <a href="/projects" className="link-underline">PROJECTS</a>
             <a href="#awards" className="link-underline">AWARDS</a>
+            <a href="#leadership" className="link-underline">LEADERSHIP</a>
             <a href="#experience" className="link-underline">EXPERIENCE</a>
+            <a href="/creative" className="link-underline">CREATIVE</a>
             <a href="#interface" className="link-underline">CONTACT</a>
           </div>
         </div>
@@ -167,6 +169,7 @@ export default function Home() {
             <p className="text-gray-400 font-mono text-sm">// Recognition and Competitive Success</p>
           </div>
 
+          {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -181,7 +184,7 @@ export default function Home() {
               },
               {
                 number: '01',
-                title: 'COMMUNITY LEAD',
+                title: 'GCP CERTIFIED',
                 img: '/award3.jpg',
               },
             ].map((award, i) => (
@@ -203,15 +206,165 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Hackathon Wins Subsection */}
+          <div className="space-y-8 mt-16">
+            <h3 className="text-3xl font-bold magenta-lead">// FEATURED HACKATHON WINS</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: 'MoodMelody.AI',
+                  achievement: '3rd Place Global',
+                  event: 'Google AI Hackathon',
+                  year: '2024',
+                  desc: 'AI-powered music generation platform leveraging Gemini AI and LangChain'
+                },
+                {
+                  title: 'SlugSei',
+                  achievement: 'Innovation Award',
+                  event: 'SC Hackathon',
+                  year: '2024',
+                  desc: 'Computer vision-based baseball swing analysis using TensorFlow'
+                },
+                {
+                  title: 'Joblify',
+                  achievement: 'DevPost Award',
+                  event: 'Tech Conference Hackathon',
+                  year: '2023',
+                  desc: 'AI career companion for job application optimization'
+                },
+                {
+                  title: 'Hypezone',
+                  achievement: 'Winner',
+                  event: 'AI Atlanta Hackathon',
+                  year: '2024',
+                  desc: 'AI-powered hyper-personalization platform'
+                },
+              ].map((win, i) => (
+                <div key={i} className="glass rounded-lg p-6 neon-border-magenta hover-lift">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="text-xl font-bold text-cyan-400 mb-1">{win.title}</h4>
+                      <p className="text-magenta-400 font-mono text-sm font-semibold mb-2">{win.achievement}</p>
+                    </div>
+                    <span className="text-gray-400 font-mono text-xs">{win.year}</span>
+                  </div>
+                  <p className="text-gray-400 text-xs font-mono mb-3">{win.event}</p>
+                  <p className="text-gray-300 text-sm">{win.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* EXPERIENCE Section */}
-      <section id="experience" className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
+      {/* LEADERSHIP & COMMUNITY Section */}
+      <section id="leadership" className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="space-y-4">
-            <h2 className="text-5xl magenta-lead">// EXPERIENCE</h2>
-            <p className="text-gray-400 font-mono text-sm">// Professional Journey & Impact</p>
+            <h2 className="text-5xl magenta-lead">// LEADERSHIP & COMMUNITY</h2>
+            <p className="text-gray-400 font-mono text-sm">// Empowering communities and driving impact through volunteer leadership</p>
+          </div>
+
+          {/* Organization Carousel */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-cyan-400">Active Organizations</h3>
+            <div className="relative overflow-hidden py-8">
+              <style>{`
+                @keyframes scroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .carousel-track {
+                  animation: scroll 30s linear infinite;
+                }
+                .carousel-container:hover .carousel-track {
+                  animation-play-state: paused;
+                }
+              `}</style>
+              <div className="carousel-container overflow-hidden w-full">
+                <div className="carousel-track flex gap-8 whitespace-nowrap">
+                  {[
+                    { name: 'Google Developer Groups', logo: '/gdg logo.png' },
+                    { name: 'Women TechMakers', logo: '/wtm logo.png' },
+                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
+                    { name: 'MSU ICER', logo: '/icer logo.png' },
+                    { name: 'Break Through Tech AI', logo: '/BTT logo.png' },
+                    // Duplicate for seamless loop
+                    { name: 'Google Developer Groups', logo: '/gdg logo.png' },
+                    { name: 'Women TechMakers', logo: '/wtm logo.png' },
+                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
+                    { name: 'MSU ICER', logo: '/icer logo.png' },
+                    { name: 'Break Through Tech AI', logo: '/BTT logo.png' },
+                  ].map((org, i) => (
+                    <div key={i} className="flex-shrink-0 w-32 h-32 glass rounded-lg neon-border-cyan p-4 flex items-center justify-center hover-lift">
+                      <img src={org.logo} alt={org.name} className="w-full h-full object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Leadership Roles Detail */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-cyan-400">Leadership Roles</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  org: 'Google Developer Groups',
+                  role: 'MSU Lead',
+                  period: '2024 - PRESENT',
+                  desc: 'Leading developer community for Google technologies at Michigan State University. Organizing workshops, speaker events, and fostering innovation.',
+                  impact: '500+ community members reached'
+                },
+                {
+                  org: 'Women TechMakers',
+                  role: 'Community Lead',
+                  period: '2023 - PRESENT',
+                  desc: 'Empowering women in technology and leadership. Organizing community events, mentorship programs, and networking opportunities.',
+                  impact: '200+ women in tech community'
+                },
+                {
+                  org: 'Break Through Tech AI',
+                  role: 'AI Fellow',
+                  period: '2024 - PRESENT',
+                  desc: 'Advanced machine learning training through ML Foundations and AI Studio programs with focus on real-world AI applications and ethical deployment.',
+                  impact: 'Mentoring emerging AI practitioners'
+                },
+                {
+                  org: 'TP Connects',
+                  role: 'Advisory Board Member',
+                  period: '2024 - PRESENT',
+                  desc: 'Supporting community connections and professional development initiatives. Contributing strategic guidance for organizational growth.',
+                  impact: 'Driving organizational strategy'
+                },
+              ].map((role, i) => (
+                <div key={i} className="glass rounded-lg p-6 neon-border-magenta hover-lift">
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-lg font-bold text-cyan-400">{role.org}</h4>
+                      <p className="text-magenta-400 font-mono text-sm font-semibold">{role.role}</p>
+                    </div>
+                    <p className="text-gray-400 font-mono text-xs">{role.period}</p>
+                    <p className="text-gray-300 text-sm">{role.desc}</p>
+                    <div className="pt-3 border-t border-cyan-500 border-opacity-20">
+                      <p className="text-cyan-400 text-xs font-mono">✦ {role.impact}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL EXPERIENCE Section */}
+      <section id="experience" className="py-20 px-6 animate-fade-in">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="space-y-4">
+            <h2 className="text-5xl magenta-lead">// PROFESSIONAL EXPERIENCE</h2>
+            <p className="text-gray-400 font-mono text-sm">// Industry roles and technical expertise</p>
           </div>
 
           <div className="relative">
@@ -235,62 +388,6 @@ export default function Home() {
                   period: '2023 - 2024',
                   desc: 'Managed cloud infrastructure, DevOps pipelines, and infrastructure-as-code deployments',
                   side: 'right'
-                },
-                {
-                  company: 'BREAK THROUGH TECH AI',
-                  logo: '/BTT logo.png',
-                  role: 'AI Fellow',
-                  period: '2024 - PRESENT',
-                  desc: 'Advanced ML training through ML Foundations + AI Studio programs focusing on real-world AI applications',
-                  side: 'left'
-                },
-                {
-                  company: 'GOOGLE DEVELOPER GROUPS',
-                  logo: '/gdg logo.png',
-                  role: 'MSU Lead',
-                  period: '2024 - PRESENT',
-                  desc: 'Leading developer community for Google technologies at Michigan State University',
-                  side: 'right'
-                },
-                {
-                  company: 'WOMEN TECHMAKERS',
-                  logo: '/wtm logo.png',
-                  role: 'Community Lead',
-                  period: '2023 - PRESENT',
-                  desc: 'Empowering women in technology and leadership',
-                  side: 'left'
-                },
-                {
-                  company: 'TP CONNECTS',
-                  logo: '/tpc connects logo.png',
-                  role: 'Advisory Board Member',
-                  period: '2024 - PRESENT',
-                  desc: 'Supporting community connections and professional development',
-                  side: 'right'
-                },
-                {
-                  company: 'MSU ICER',
-                  logo: '/icer logo.png',
-                  role: 'Member',
-                  period: '2023 - 2025',
-                  desc: 'Introducing Computing & Engineering Research',
-                  side: 'left'
-                },
-                {
-                  company: 'MSU HONORS COLLEGE',
-                  logo: '/msu honors college.jpg',
-                  role: 'Student',
-                  period: '2021 - 2025',
-                  desc: 'Honors College scholar at Michigan State University',
-                  side: 'right'
-                },
-                {
-                  company: 'MSU COLLEGE OF ENGINEERING',
-                  logo: '/msu college of eng.jpeg',
-                  role: 'Student',
-                  period: '2021 - 2025',
-                  desc: 'B.S. Computer Science with Math & Entrepreneurship Minors',
-                  side: 'left'
                 },
               ].map((exp, i) => (
                 <div key={i} className="relative flex items-start gap-8">
@@ -381,6 +478,34 @@ export default function Home() {
 
           <div className="text-right">
             <a href="#" className="text-magenta-400 font-mono text-sm link-underline">FULL_ARCHIVE →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* CREATIVE EXPRESSIONS TEASER */}
+      <section className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="glass rounded-lg p-8 neon-border-cyan hover-lift space-y-4">
+              <h3 className="text-2xl font-bold text-cyan-400">📝 Poetry</h3>
+              <p className="text-gray-300 text-sm">Reflections and creative prose exploring ideas, technology, and the human experience.</p>
+              <p className="text-cyan-400 font-mono text-xs">4 pieces</p>
+            </div>
+            <div className="glass rounded-lg p-8 neon-border-magenta hover-lift space-y-4">
+              <h3 className="text-2xl font-bold text-magenta-400">📚 Reading</h3>
+              <p className="text-gray-300 text-sm">Currently exploring books across history, psychology, science fiction, and personal development.</p>
+              <p className="text-magenta-400 font-mono text-xs">6 books</p>
+            </div>
+            <div className="glass rounded-lg p-8 neon-border-cyan hover-lift space-y-4">
+              <h3 className="text-2xl font-bold text-cyan-400">🎨 Artwork</h3>
+              <p className="text-gray-300 text-sm">Digital illustrations and visual designs blending art with technology and creative expression.</p>
+              <p className="text-cyan-400 font-mono text-xs">4 pieces</p>
+            </div>
+          </div>
+          <div className="text-center pt-12">
+            <a href="/creative" className="neon-border-magenta px-6 py-3 hover-lift font-mono text-sm text-magenta-400 inline-block">
+              EXPLORE CREATIVE WORLD →
+            </a>
           </div>
         </div>
       </section>
