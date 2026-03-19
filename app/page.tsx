@@ -13,7 +13,6 @@ export default function Home() {
             <a href="#awards" className="link-underline">AWARDS</a>
             <a href="#leadership" className="link-underline">LEADERSHIP</a>
             <a href="#experience" className="link-underline">EXPERIENCE</a>
-            <a href="/creative" className="link-underline">CREATIVE</a>
             <a href="#interface" className="link-underline">CONTACT</a>
           </div>
         </div>
@@ -287,15 +286,29 @@ export default function Home() {
                   {[
                     { name: 'Google Developer Groups', logo: '/gdg logo.png' },
                     { name: 'Women TechMakers', logo: '/wtm logo.png' },
-                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
+                    { name: 'Spartan Hackers', logo: '/spartan hackers.jpeg' },
+                    { name: 'AnitaB.org', logo: '/anita b org.png' },
+                    { name: 'Harvard WECode', logo: '/harvard.jpg' },
+                    { name: 'HSOCC', logo: '/hsocc logo.png' },
+                    { name: 'MSU College of Engineering', logo: '/msu college of eng.jpeg' },
+                    { name: 'RTC', logo: '/RTC.jpeg' },
+                    { name: 'Taskformer', logo: '/taskformer.jpeg' },
+                    { name: 'WECode', logo: '/wecode.png' },
                     { name: 'MSU ICER', logo: '/icer logo.png' },
-                    { name: 'Break Through Tech AI', logo: '/BTT logo.png' },
+                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
                     // Duplicate for seamless loop
                     { name: 'Google Developer Groups', logo: '/gdg logo.png' },
                     { name: 'Women TechMakers', logo: '/wtm logo.png' },
-                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
+                    { name: 'Spartan Hackers', logo: '/spartan hackers.jpeg' },
+                    { name: 'AnitaB.org', logo: '/anita b org.png' },
+                    { name: 'Harvard WECode', logo: '/harvard.jpg' },
+                    { name: 'HSOCC', logo: '/hsocc logo.png' },
+                    { name: 'MSU College of Engineering', logo: '/msu college of eng.jpeg' },
+                    { name: 'RTC', logo: '/RTC.jpeg' },
+                    { name: 'Taskformer', logo: '/taskformer.jpeg' },
+                    { name: 'WECode', logo: '/wecode.png' },
                     { name: 'MSU ICER', logo: '/icer logo.png' },
-                    { name: 'Break Through Tech AI', logo: '/BTT logo.png' },
+                    { name: 'TP Connects', logo: '/tpc connects logo.png' },
                   ].map((org, i) => (
                     <div key={i} className="flex-shrink-0 w-32 h-32 glass rounded-lg neon-border-cyan p-4 flex items-center justify-center hover-lift">
                       <img src={org.logo} alt={org.name} className="w-full h-full object-contain" />
@@ -313,38 +326,61 @@ export default function Home() {
               {[
                 {
                   org: 'Google Developer Groups',
-                  role: 'MSU Lead',
+                  role: 'Co-President for GDG and AIx',
                   period: '2024 - PRESENT',
-                  desc: 'Leading developer community for Google technologies at Michigan State University. Organizing workshops, speaker events, and fostering innovation.',
-                  impact: '500+ community members reached'
+                  desc: 'Kickstarted MSU\'s GDG chapter, co-led technical programming, and organized workshops on Flutter, Firebase, TensorFlow, Gemini, BigQuery, and Google Cloud.',
+                  impact: '415+ members, 12 leadership team',
+                  logo: '/gdg logo.png'
                 },
                 {
-                  org: 'Women TechMakers',
-                  role: 'Community Lead',
-                  period: '2023 - PRESENT',
-                  desc: 'Empowering women in technology and leadership. Organizing community events, mentorship programs, and networking opportunities.',
-                  impact: '200+ women in tech community'
+                  org: 'Harvard WECode',
+                  role: 'Scholar',
+                  period: '2025',
+                  desc: 'Selected as Harvard WECode Scholar and engaged in leadership development, technical sessions, and community-building initiatives.',
+                  impact: 'Global women-in-tech network',
+                  logo: '/harvard.jpg'
                 },
                 {
-                  org: 'Break Through Tech AI',
-                  role: 'AI Fellow',
-                  period: '2024 - PRESENT',
-                  desc: 'Advanced machine learning training through ML Foundations and AI Studio programs with focus on real-world AI applications and ethical deployment.',
-                  impact: 'Mentoring emerging AI practitioners'
+                  org: 'Amazon Web Services',
+                  role: 'All Builders Welcome Grant Recipient',
+                  period: '2025',
+                  desc: 'Awarded AWS All Builders Welcome grant support to accelerate technical projects, cloud learning, and community impact.',
+                  impact: 'Cloud project acceleration support',
+                  logo: '/aws logo.jpeg'
                 },
                 {
-                  org: 'TP Connects',
-                  role: 'Advisory Board Member',
+                  org: 'Google Cloud',
+                  role: 'Student Innovator',
                   period: '2024 - PRESENT',
-                  desc: 'Supporting community connections and professional development initiatives. Contributing strategic guidance for organizational growth.',
-                  impact: 'Driving organizational strategy'
+                  desc: 'Selected among 16,000 applicants as part of an exclusive 200-student innovator cohort focused on production cloud solutions and AI tools.',
+                  impact: 'Top 200 globally selected',
+                  logo: '/Google Cloud Digital Leader Certification.png'
+                },
+                {
+                  org: 'Michigan State University HSOCC',
+                  role: 'Outreach Coordinator',
+                  period: '2024 - PRESENT',
+                  desc: 'Coordinated outreach initiatives to connect students with engineering opportunities, events, and mentorship pathways.',
+                  impact: 'Expanded engineering outreach programs',
+                  logo: '/hsocc logo.png'
+                },
+                {
+                  org: 'Spartan Hackers',
+                  role: 'Tech Lead',
+                  period: '2024 - PRESENT',
+                  desc: 'Led technical planning and execution support for hackathon initiatives, engineering workshops, and student developer projects.',
+                  impact: 'Cross-campus hackathon enablement',
+                  logo: '/spartan hackers.jpeg'
                 },
               ].map((role, i) => (
                 <div key={i} className="glass rounded-lg p-6 neon-border-magenta hover-lift">
                   <div className="space-y-3">
-                    <div>
-                      <h4 className="text-lg font-bold text-cyan-400">{role.org}</h4>
-                      <p className="text-magenta-400 font-mono text-sm font-semibold">{role.role}</p>
+                    <div className="flex items-start gap-3">
+                      <img src={role.logo} alt={`${role.org} logo`} className="w-10 h-10 object-contain rounded" />
+                      <div>
+                        <h4 className="text-lg font-bold text-cyan-400">{role.org}</h4>
+                        <p className="text-magenta-400 font-mono text-sm font-semibold">{role.role}</p>
+                      </div>
                     </div>
                     <p className="text-gray-400 font-mono text-xs">{role.period}</p>
                     <p className="text-gray-300 text-sm">{role.desc}</p>
@@ -374,20 +410,92 @@ export default function Home() {
             <div className="space-y-16">
               {[
                 {
+                  company: 'ASAPP x Break Through Tech AI (Cornell Fellowship)',
+                  logo: '/asapp_logo.jpeg',
+                  role: 'AI Engineer Intern (Fellowship)',
+                  period: 'SEP 2025 - DEC 2025',
+                  desc: 'Led a team of 5 to build an AI platform over 10,000+ customer service conversations using Next.js, Python, FastAPI, Gemini API, and SQLite; demoed to 100+ fellows and industry leaders.',
+                  side: 'left'
+                },
+                {
                   company: 'NUCOR STEEL',
                   logo: '/nucor logo.png',
                   role: 'Software Automation Intern',
-                  period: '2024 - PRESENT',
-                  desc: 'Building intelligent onboarding tools using Copilot Studio, Azure, and C3 AI for manufacturing safety',
+                  period: 'MAY 2025 - AUG 2025',
+                  desc: 'Automated Oracle EBS testing across 10+ steel divisions and built Baymax, an Agentic AI safety hub with C3.ai, Azure Event Grid, Databricks, Python, C#, SQL, and REST APIs.',
+                  side: 'right'
+                },
+                {
+                  company: 'ViaLearn',
+                  logo: '/vialearn.png',
+                  role: 'Full-Stack Developer',
+                  period: 'MAR 2025 - JUL 2025',
+                  desc: 'Led a team of 4 to build an AI productivity app using Flutter, Firebase, Python, LangChain, RAG, FastAPI, GCP, ChromaDB, and OpenAI APIs, reducing planning time by 30%.',
                   side: 'left'
                 },
                 {
                   company: 'TECHSMITH',
                   logo: '/techsmith logo.jpeg',
                   role: 'Site Reliability Engineer (SRE)',
-                  period: '2023 - 2024',
-                  desc: 'Managed cloud infrastructure, DevOps pipelines, and infrastructure-as-code deployments',
+                  period: 'MAY 2024 - AUG 2024',
+                  desc: 'Worked on Kubernetes/Flux/Prometheus cloud-native infrastructure, CI/CD automation with Terraform and Helm, and delivered an Internal Developer Portal for 300+ developers.',
                   side: 'right'
+                },
+                {
+                  company: 'Google Developer Groups (GDG)',
+                  logo: '/gdg logo.png',
+                  role: 'President and Cloud Student Innovator',
+                  period: 'OCT 2023 - PRESENT',
+                  desc: 'Selected among 16,000 applicants as one of 200 Google Cloud Student Innovators and led MSU GDG community growth to 415+ members.',
+                  side: 'left'
+                },
+                {
+                  company: 'MSU College of Engineering (CSE Department)',
+                  logo: '/msu college of eng.jpeg',
+                  role: 'CSE 331 Undergraduate Learning Assistant (DSA in Python)',
+                  period: 'JAN 2024 - MAY 2025',
+                  desc: 'Supported weekly instruction for ~350 students, led help room/debugging sessions, and contributed projects, homework, and exam review content.',
+                  side: 'right'
+                },
+                {
+                  company: 'MSU Honors College',
+                  logo: '/msu honors college.jpg',
+                  role: 'Professorial Assistant',
+                  period: '2024 - 2025',
+                  desc: 'Supported faculty research and honors program academic initiatives through project coordination, research tasks, and documentation.',
+                  side: 'left'
+                },
+                {
+                  company: 'MSU College of Engineering',
+                  logo: '/msu college of eng.jpeg',
+                  role: 'Outreach Ambassador',
+                  period: '2024 - PRESENT',
+                  desc: 'Represented the college in outreach programs, mentoring efforts, and student-facing events to broaden engineering participation.',
+                  side: 'right'
+                },
+                {
+                  company: 'TP Connects',
+                  logo: '/tpc connects logo.png',
+                  role: 'Community and Strategy Contributor',
+                  period: '2024 - PRESENT',
+                  desc: 'Contributed to community programming, advisory initiatives, and event strategy for cross-community engagement.',
+                  side: 'left'
+                },
+                {
+                  company: 'MSU ICER',
+                  logo: '/icer logo.png',
+                  role: 'Research Computing Contributor',
+                  period: '2024 - PRESENT',
+                  desc: 'Collaborated on student-facing research computing initiatives and technical community support activities.',
+                  side: 'right'
+                },
+                {
+                  company: 'Buildspace',
+                  logo: '/buildspace.png',
+                  role: 'Builder and Hackathon Participant (S5 Nights & Weekends)',
+                  period: '2025',
+                  desc: 'Built and shipped project ideas through Buildspace S5 while actively participating in builder community hackathon cycles.',
+                  side: 'left'
                 },
               ].map((exp, i) => (
                 <div key={i} className="relative flex items-start gap-8">
@@ -449,7 +557,22 @@ export default function Home() {
                   <p className="text-cyan-400">Michigan State University • Honors College</p>
                   <p className="text-gray-400 text-sm mt-2">Math & Entrepreneurship Minors • Dean's List • 3.95+ GPA</p>
                 </div>
-                <img src="/msu-logo.png" alt="MSU" className="w-20 h-20 object-contain" />
+                <img src="/msu college of eng.jpeg" alt="MSU College of Engineering" className="w-20 h-20 object-contain" />
+              </div>
+            </div>
+
+            <div className="glass p-8 rounded-lg neon-border-cyan space-y-4">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="text-gray-400 font-mono text-sm">AUG 2025</p>
+                  <h4 className="text-2xl font-bold text-white">Machine Learning Foundations e-Certificate</h4>
+                  <p className="text-cyan-400">Cornell University • Break Through Tech</p>
+                  <p className="text-gray-300 text-sm mt-2">Relevant Coursework: Data Structures, Data Analysis, Training Classification and Regression Models, Natural Language Modelling</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <img src="/Cornell_University.png" alt="Cornell University" className="w-20 h-20 object-contain" />
+                  <img src="/BTT logo.png" alt="Break Through Tech" className="w-20 h-20 object-contain" />
+                </div>
               </div>
             </div>
           </div>
@@ -478,34 +601,6 @@ export default function Home() {
 
           <div className="text-right">
             <a href="#" className="text-magenta-400 font-mono text-sm link-underline">FULL_ARCHIVE →</a>
-          </div>
-        </div>
-      </section>
-
-      {/* CREATIVE EXPRESSIONS TEASER */}
-      <section className="py-20 px-6 bg-gradient-to-b from-black via-gray-950 to-black animate-fade-in">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass rounded-lg p-8 neon-border-cyan hover-lift space-y-4">
-              <h3 className="text-2xl font-bold text-cyan-400">📝 Poetry</h3>
-              <p className="text-gray-300 text-sm">Reflections and creative prose exploring ideas, technology, and the human experience.</p>
-              <p className="text-cyan-400 font-mono text-xs">4 pieces</p>
-            </div>
-            <div className="glass rounded-lg p-8 neon-border-magenta hover-lift space-y-4">
-              <h3 className="text-2xl font-bold text-magenta-400">📚 Reading</h3>
-              <p className="text-gray-300 text-sm">Currently exploring books across history, psychology, science fiction, and personal development.</p>
-              <p className="text-magenta-400 font-mono text-xs">6 books</p>
-            </div>
-            <div className="glass rounded-lg p-8 neon-border-cyan hover-lift space-y-4">
-              <h3 className="text-2xl font-bold text-cyan-400">🎨 Artwork</h3>
-              <p className="text-gray-300 text-sm">Digital illustrations and visual designs blending art with technology and creative expression.</p>
-              <p className="text-cyan-400 font-mono text-xs">4 pieces</p>
-            </div>
-          </div>
-          <div className="text-center pt-12">
-            <a href="/creative" className="neon-border-magenta px-6 py-3 hover-lift font-mono text-sm text-magenta-400 inline-block">
-              EXPLORE CREATIVE WORLD →
-            </a>
           </div>
         </div>
       </section>

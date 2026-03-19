@@ -1,11 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-
 export default function ProjectsPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-
   const projects = [
     {
       title: 'Pill Pal',
@@ -75,7 +70,7 @@ export default function ProjectsPage() {
       title: 'ViaLearn',
       desc: 'Interactive learning platform connecting educators and students',
       tech: ['EDTECH', 'REACT', 'FULL_STACK'],
-      img: '/placeholder.png',
+      img: '/Viaveri.png',
       link: 'https://github.com/Via-Learn/MVP/tree/main',
       linkLabel: 'GITHUB'
     },
@@ -111,45 +106,55 @@ export default function ProjectsPage() {
       link: 'https://docs.google.com/presentation/d/1LqEQw8id-uKmLIlAwgl2ICS29VaF9-qjX_eXqa28lIM/edit?usp=sharing',
       linkLabel: 'VIEW PRESENTATION'
     },
+    {
+      title: 'Michigan TEA',
+      desc: 'Program website for the Michigan Technology Exploration Award initiative supporting high school tech exploration',
+      tech: ['NEXT.JS', 'COMMUNITY', 'EDUCATION'],
+      img: '/Michigan-TEA.png',
+      link: 'https://github.com/Divyatech-hub/Michigan-TEA',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'N-body Simulation (Software Performance Engineering)',
+      desc: 'CSE 491 Project 2 focused on optimizing N-body simulation performance in C++',
+      tech: ['C++', 'SIMULATION', 'PERFORMANCE_ENGINEERING'],
+      img: '/CSE491-Project2-n-body simulation using C++.png',
+      link: '/CSE%20491%20-%20Project%202%20-%20Final%20Submission%20Writeup%20(2).pdf',
+      linkLabel: 'VIEW PDF'
+    },
+    {
+      title: 'NxN Image Rotation using Bit Hacks (Software Performance Engineering)',
+      desc: 'CSE 491 Project 1 implementing NxN image rotation with low-level bit manipulation optimizations',
+      tech: ['C++', 'BIT_HACKS', 'PERFORMANCE_ENGINEERING'],
+      img: '/CSE491-Project2-n-body simulation using C++.png',
+      link: '/CSE%20491%20Project%201%20Final%20Submission.pdf',
+      linkLabel: 'VIEW PDF'
+    },
+    {
+      title: 'NIC Gateway Optimization (CSE 422 - Honors Report)',
+      desc: 'Network interface controller optimization project with runtime analytics and gateway performance insights',
+      tech: ['NETWORKING', 'SYSTEMS', 'PERFORMANCE_ANALYSIS'],
+      img: '/NIC Optimization.png',
+      link: '/CSE%20422%20-%20Honors%20Report.pdf',
+      linkLabel: 'VIEW PDF'
+    },
+    {
+      title: 'Extractify (ASAPP x Break Through Tech AI Fellowship)',
+      desc: 'AI fellowship project developed with ASAPP to extract structured insights from unstructured content',
+      tech: ['AI', 'NLP', 'FELLOWSHIP'],
+      img: '/asapp_logo.jpeg',
+      link: 'https://github.com/ASAPP1B-BTT-Fall-AI-Studio-2025/Extractify',
+      linkLabel: 'GITHUB'
+    },
+    {
+      title: 'Learn Pulse (Cornell x Break Through Tech AI Fellowship)',
+      desc: 'Agentic AI and RAG-focused learning platform built through the Cornell x Break Through Tech AI Fellowship',
+      tech: ['AGENTIC_AI', 'RAG', 'FELLOWSHIP'],
+      img: '/Cornell_University.png',
+      link: 'https://github.com/LearnPulse/Website_MVP',
+      linkLabel: 'GITHUB'
+    },
   ];
-
-  // Get all unique skills
-  const allSkills = useMemo(() => {
-    const skillSet = new Set<string>();
-    projects.forEach(project => {
-      project.tech.forEach(skill => skillSet.add(skill));
-    });
-    return Array.from(skillSet).sort();
-  }, []);
-
-  // Filter projects based on search and selected skills
-  const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
-      const matchesSearch = 
-        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.tech.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase()));
-
-      const matchesSkills = 
-        selectedSkills.length === 0 || 
-        selectedSkills.some(skill => project.tech.includes(skill));
-
-      return matchesSearch && matchesSkills;
-    });
-  }, [searchQuery, selectedSkills]);
-
-  const toggleSkill = (skill: string) => {
-    setSelectedSkills(prev =>
-      prev.includes(skill)
-        ? prev.filter(s => s !== skill)
-        : [...prev, skill]
-    );
-  };
-
-  const clearFilters = () => {
-    setSearchQuery('');
-    setSelectedSkills([]);
-  };
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -179,56 +184,9 @@ export default function ProjectsPage() {
               <p className="text-gray-400 font-mono text-sm">// A repository of high-throughput systems, mathematical visualizations, and neural architectures.</p>
             </div>
 
-            {/* Search Bar */}
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search projects, skills, or technologies..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-gray-900 text-white border border-cyan-500 border-opacity-40 rounded-lg px-4 py-3 font-mono text-sm focus:outline-none focus:border-cyan-400 focus:border-opacity-100 transition"
-              />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-cyan-400">🔍</span>
-            </div>
-
-            {/* Filter by Skills */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-mono text-cyan-400">FILTER BY SKILL</h3>
-                {selectedSkills.length > 0 && (
-                  <button
-                    onClick={clearFilters}
-                    className="text-xs font-mono text-magenta-400 link-underline"
-                  >
-                    CLEAR_ALL
-                  </button>
-                )}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {allSkills.map(skill => (
-                  <button
-                    key={skill}
-                    onClick={() => toggleSkill(skill)}
-                    className={`text-xs px-3 py-2 font-mono rounded transition ${
-                      selectedSkills.includes(skill)
-                        ? 'bg-magenta-500 text-black neon-border-magenta'
-                        : 'neon-border-cyan text-cyan-400 hover:bg-cyan-400 hover:text-black'
-                    }`}
-                  >
-                    {skill}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Results Count */}
-            <div className="text-gray-400 font-mono text-sm">
-              // Showing {filteredProjects.length} of {projects.length} projects
-            </div>
-
             {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {filteredProjects.map((project, i) => (
+              {projects.map((project, i) => (
                 <div key={i} className="group">
                   <div className="relative overflow-hidden rounded-lg mb-4 glass hover-lift">
                     <div className="relative h-64 w-full">
@@ -249,13 +207,7 @@ export default function ProjectsPage() {
                       {project.tech.map((t, j) => (
                         <span 
                           key={j} 
-                          className={`text-xs px-2 py-1 rounded cursor-pointer transition ${
-                            selectedSkills.includes(t)
-                              ? 'bg-magenta-500 text-black'
-                              : 'neon-border-cyan'
-                          }`}
-                          onClick={() => toggleSkill(t)}
-                          title="Click to filter by this skill"
+                          className="text-xs px-2 py-1 rounded neon-border-cyan"
                         >
                           {t}
                         </span>
@@ -275,12 +227,6 @@ export default function ProjectsPage() {
                 </div>
               ))}
             </div>
-
-            {filteredProjects.length === 0 && (
-              <div className="text-center py-12 text-gray-400">
-                <p className="font-mono">NO PROJECTS FOUND MATCHING YOUR FILTERS</p>
-              </div>
-            )}
 
             <div className="text-center pt-12">
               <a href="/" className="text-magenta-400 font-mono text-sm link-underline">← BACK_TO_HOME</a>
