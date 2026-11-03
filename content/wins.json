@@ -1,0 +1,12 @@
+{
+  "totalHackathons": 14,
+  "wins": [
+    { "event": "TikTok TechJam", "year": 2024, "result": "3rd worldwide of 4,453", "project": "moodmelody" },
+    { "event": "Nucor annual AI agents hackathon", "year": 2025, "result": "1st", "project": "baymax" },
+    { "event": "AI ATL", "year": null, "result": "runner-up, PrizePicks track", "project": "hypezone" },
+    { "event": "MHacks", "year": 2023, "result": "best cybersecurity hack", "project": "crowdsecure" },
+    { "event": "ShellHacks", "year": null, "result": "[TODO] win details", "project": null },
+    { "event": "[TODO]", "year": null, "result": "[TODO]", "project": null },
+    { "event": "[TODO]", "year": null, "result": "[TODO]", "project": null }
+  ]
+}

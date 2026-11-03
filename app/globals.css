@@ -1,211 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Michroma&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/*
+  Theme tokens. Registering them with @property lets the browser
+  interpolate colors, so switching themes is a real crossfade, not a swap.
+*/
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #07080f; }
+@property --bg-2 { syntax: "<color>"; inherits: true; initial-value: #10121d; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #e9ecf5; }
+@property --soft { syntax: "<color>"; inherits: true; initial-value: #9aa1b8; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #9cc3ff; }
+@property --accent-2 { syntax: "<color>"; inherits: true; initial-value: #c9a0ff; }
+@property --gold { syntax: "<color>"; inherits: true; initial-value: #ffd27a; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: rgba(233, 236, 245, 0.14); }
+
+:root,
+[data-theme="night"] {
+  --bg: #07080f;
+  --bg-2: #10121d;
+  --ink: #e9ecf5;
+  --soft: #9aa1b8;
+  --accent: #9cc3ff;
+  --accent-2: #c9a0ff;
+  --gold: #ffd27a;
+  --line: rgba(233, 236, 245, 0.14);
+  color-scheme: dark;
 }
 
-:root {
-  --color-black: #000000;
-  --color-charcoal: #050505;
-  --color-cyan: #00FFFF;
-  --color-magenta: #FF00FF;
-  --color-white: #FFFFFF;
-  --color-gray: #888888;
-  --glow-cyan: 0 0 10px rgba(0, 255, 255, 0.3);
-  --glow-magenta: 0 0 10px rgba(255, 0, 255, 0.3);
+[data-theme="dawn"] {
+  --bg: #f7ebe3;
+  --bg-2: #f0dcd2;
+  --ink: #2a1b2e;
+  --soft: #66505f;
+  --accent: #a8431f;
+  --accent-2: #6a4c9c;
+  --gold: #7f5300;
+  --line: rgba(42, 27, 46, 0.14);
+  color-scheme: light;
+}
+
+[data-theme="day"] {
+  --bg: #f4f1ea;
+  --bg-2: #e9e4d8;
+  --ink: #1c1d24;
+  --soft: #555866;
+  --accent: #2b53c4;
+  --accent-2: #9a4a14;
+  --gold: #835400;
+  --line: rgba(28, 29, 36, 0.13);
+  color-scheme: light;
+}
+
+[data-theme="dusk"] {
+  --bg: #1d1430;
+  --bg-2: #2a1d42;
+  --ink: #f6e9f0;
+  --soft: #c2adc8;
+  --accent: #ff9a6b;
+  --accent-2: #d3b0ff;
+  --gold: #ffcf70;
+  --line: rgba(246, 233, 240, 0.15);
+  color-scheme: dark;
 }
 
 html {
-  scroll-behavior: smooth;
+  /* expo-ish ease. long enough to feel like the sky changing, short enough to not lag */
+  transition: --bg 1.2s cubic-bezier(0.16, 1, 0.3, 1), --bg-2 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    --ink 1.2s cubic-bezier(0.16, 1, 0.3, 1), --soft 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    --accent 1.2s cubic-bezier(0.16, 1, 0.3, 1), --accent-2 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    --gold 1.2s cubic-bezier(0.16, 1, 0.3, 1), --line 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--bg);
 }
 
 body {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-family: 'JetBrains Mono', monospace;
-  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
-.subtitle {
-  font-family: 'Michroma', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+/* Visible, theme-aware focus ring on everything interactive */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* Neon Text Gradient */
-.neon-gradient {
-  background: linear-gradient(90deg, var(--color-cyan) 0%, var(--color-magenta) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Story vs skip-the-story. The inline script in layout.tsx sets data-mode before first paint. */
+[data-mode="skip"] .story-only {
+  display: none;
+}
+[data-mode="story"] .skip-only,
+:root:not([data-mode]) .skip-only {
+  display: none;
 }
 
-/* Neon Borders & Glow */
-.neon-border-cyan {
-  border: 1px solid var(--color-cyan);
-  box-shadow: var(--glow-cyan);
+/* Hero text waits for JS so it doesn't flash before animating in.
+   The fallback animation shows it anyway after 2.5s if scripts fail. */
+[data-mode="story"] .await-js {
+  visibility: hidden;
+  animation: await-js-fallback 0s 2.5s forwards;
+}
+@keyframes await-js-fallback {
+  to { visibility: visible; }
 }
 
-.neon-border-magenta {
-  border: 1px solid var(--color-magenta);
-  box-shadow: var(--glow-magenta);
+/* SplitText line masks need a little room for descenders */
+.split-line-mask {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.06); opacity: 1; }
 }
 
-/* Grayscale Image Effect */
-.grayscale-img {
-  filter: grayscale(100%);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
-.grayscale-img:hover {
-  filter: grayscale(0%) contrast(1.1);
+@keyframes caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-/* Magenta Lead */
-.magenta-lead {
-  position: relative;
-  padding-left: 50px;
-}
-
-.magenta-lead::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 2px;
-  background-color: var(--color-magenta);
-  box-shadow: var(--glow-magenta);
-}
-
-/* Animations */
-@keyframes glitch {
-  0% {
-    text-shadow: 2px 0 var(--color-cyan), -2px 0 var(--color-magenta);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
   }
-  50% {
-    text-shadow: -2px 0 var(--color-cyan), 2px 0 var(--color-magenta);
-  }
-  100% {
-    text-shadow: 2px 0 var(--color-cyan), -2px 0 var(--color-magenta);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: var(--glow-cyan);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  }
-}
-
-.animate-glitch {
-  animation: glitch 0.3s ease-in-out;
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.6s ease-out;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Sections */
-section {
-  transition: all 0.6s ease-out;
-}
-
-/* Hover Effects */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-}
-
-/* Underline Animation */
-.link-underline {
-  position: relative;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-magenta);
-  transform: translateX(-50%);
-  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: var(--glow-magenta);
-}
-
-.link-underline:hover::after {
-  width: 100%;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 2rem;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

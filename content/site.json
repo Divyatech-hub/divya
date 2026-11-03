@@ -1,0 +1,68 @@
+{
+  "_draft": "DRAFT: everything in quotes below that isn't a fact from CLAUDE.md is draft copy for div to rewrite.",
+  "name": "Divyalakshmi Prem Sudha",
+  "short": "div",
+  "hello": "hi, i'm div.",
+  "pronounce": "like the ones from html",
+  "tagline": "from a particle to a galaxy.",
+  "description": "div builds platforms, apps and odd little universes. shipyard, revy, moodmelody.ai, and a lot of folded paper.",
+  "origin": "it started small. a grade 8 school trip from dubai to cern, and a bubble chamber full of spirals.",
+  "chapters": {
+    "fold": {
+      "title": "fold",
+      "headline": "complex systems are just simple folds in the right order.",
+      "body": "that's how i think about software. one crease, then the next. get the order right and a flat square turns into a crane.",
+      "personal": "i started origami at 5. when i leave a place, my teammates get a handmade crane with a note inside."
+    },
+    "light": {
+      "title": "light",
+      "headline": "the sky does gradients better than any designer.",
+      "body": "7+ years of art. pencil, acrylics, palette knife, watercolor, and posters for causes i care about. i still design in figma like i'm holding a brush.",
+      "personal": "these planets will wear my own acrylic paintings."
+    },
+    "sound": {
+      "title": "sound",
+      "headline": "music is just math that learned to feel.",
+      "body": "6 years in a professional choir. learning guitar. a soft spot for karaoke, no matter who is listening.",
+      "personal": "press play when it's here. it never plays on its own."
+    },
+    "gravity": {
+      "title": "gravity",
+      "headline": "small, steady pulls win the long game.",
+      "body": "compound growth is just gravity with patience. money, skills, teams: same curve.",
+      "ambition": "build a company with real customers, hire a great team, take it all the way to ipo or acquisition. then do it again.",
+      "disclaimer": "for fun, not financial advice."
+    },
+    "earth": {
+      "title": "pale blue dot",
+      "headline": "zoom back out. every place left a fingerprint.",
+      "body": "a nod to carl sagan. the globe gets scratched off, one place at a time.",
+      "goal": "7 continents by 25."
+    },
+    "observatory": {
+      "title": "the observatory",
+      "headline": "every project is a constellation. the wins burn gold.",
+      "body": "7 wins across 14 hackathons, and a few things that are still being built."
+    },
+    "signal": {
+      "title": "the signal",
+      "headline": "ask me anything. a signal goes out, an answer comes back.",
+      "body": "div's bot is still being wired up. until it's live, send a real signal."
+    },
+    "epilogue": {
+      "line": "see you at sunrise."
+    }
+  },
+  "beliefs": [
+    "a confident wrong answer is worse than no answer.",
+    "art and tech are better together, especially when someone actually needs it.",
+    "good robots shouldn't cost more than dinner."
+  ],
+  "links": {
+    "_todo": "github is confirmed. linkedin + email come from the old site, div to confirm. substack is a placeholder (null hides it).",
+    "github": "https://github.com/Divyatech-hub",
+    "linkedin": "https://www.linkedin.com/in/divyalakshmi-vrps",
+    "substack": null,
+    "email": "divyalakshmivara2022@gmail.com"
+  }
+}
