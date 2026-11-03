@@ -126,7 +126,7 @@ export default function ProjectsPage() {
       title: 'NxN Image Rotation using Bit Hacks (Software Performance Engineering)',
       desc: 'CSE 491 Project 1 implementing NxN image rotation with low-level bit manipulation optimizations',
       tech: ['C++', 'BIT_HACKS', 'PERFORMANCE_ENGINEERING'],
-      img: '/CSE491-Project2-n-body simulation using C++.png',
+      img: '/nxn rotation.png',
       link: '/CSE%20491%20Project%201%20Final%20Submission.pdf',
       linkLabel: 'VIEW PDF'
     },
@@ -142,7 +142,7 @@ export default function ProjectsPage() {
       title: 'Extractify (ASAPP x Break Through Tech AI Fellowship)',
       desc: 'AI fellowship project developed with ASAPP to extract structured insights from unstructured content',
       tech: ['AI', 'NLP', 'FELLOWSHIP'],
-      img: '/asapp_logo.jpeg',
+      img: '/Extractify.png',
       link: 'https://github.com/ASAPP1B-BTT-Fall-AI-Studio-2025/Extractify',
       linkLabel: 'GITHUB'
     },
@@ -150,7 +150,7 @@ export default function ProjectsPage() {
       title: 'Learn Pulse (Cornell x Break Through Tech AI Fellowship)',
       desc: 'Agentic AI and RAG-focused learning platform built through the Cornell x Break Through Tech AI Fellowship',
       tech: ['AGENTIC_AI', 'RAG', 'FELLOWSHIP'],
-      img: '/Cornell_University.png',
+      img: '/LearnPulse.png',
       link: 'https://github.com/LearnPulse/Website_MVP',
       linkLabel: 'GITHUB'
     },
