@@ -2,7 +2,7 @@
   { "country": "IN", "city": "Chennai", "lat": 13.08, "lng": 80.27, "order": 1, "year": null, "note": "[TODO]", "photo": null, "links": [] },
   { "country": "AE", "city": "Dubai", "lat": 25.2, "lng": 55.27, "order": 2, "year": null, "note": "home.", "photo": null, "links": [] },
   { "country": "AE", "city": "Abu Dhabi", "lat": 24.45, "lng": 54.38, "order": null, "year": null, "note": "[TODO]", "photo": null, "links": [] },
-  { "country": "CH", "city": "Geneva", "lat": 46.2, "lng": 6.14, "order": null, "year": null, "note": "the cern trip. where the spirals started.", "photo": null, "links": [] },
+  { "country": "CH", "city": "Geneva", "lat": 46.2, "lng": 6.14, "order": null, "year": null, "note": "the cern trip.", "photo": null, "links": [] },
   { "country": "US", "city": "East Lansing", "lat": 42.74, "lng": -84.48, "order": null, "year": null, "note": "[TODO]", "photo": null, "links": [] },
   { "country": "US", "city": "New York City", "lat": 40.71, "lng": -74.01, "order": null, "year": null, "note": "[TODO]", "photo": null, "links": [] },
   { "country": "US", "city": "San Jose", "lat": 37.34, "lng": -121.89, "order": null, "year": null, "note": "the tiktok / bytedance trip.", "photo": null, "links": ["moodmelody"] },

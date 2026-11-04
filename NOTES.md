@@ -42,3 +42,12 @@ Short "how this works" notes from the launch sprint. Each one names the concept 
 - **sound:** pure CSS breathing on 5 groups of dots (golden-angle spiral, no `Math.random`, so server and client match). → `SoundVisual.tsx`
 - **gravity:** month-by-month compounding, `b = b × (1 + r/12) + monthly`. Radius ∝ balance, one lap per year. The dashed "just saving" spiral is the same math with r = 0. Numbers ease to new values with a tween on a plain object. → `OrbitCalculator.tsx`
 - **observatory filters:** the visible list is *derived* from `(projects, filter)`, not stored in state. **Fundamental: derived state.** → `ObservatoryGrid.tsx`
+
+## day 2 · task 6: scratch-off globe
+
+- **three layers, one sphere.** paint (your painting, placeholder for now) → foil (printed map) → mask. The mask is a `<canvas>` used as the foil's `alphaMap`: white = foil, black = scratched. → `components/chapters/globe/GlobeScene.tsx`
+- **scratching is just canvas drawing.** A raycast hit on the foil gives `e.uv` (0..1 across the texture). Multiply by the canvas size, draw a black stroke, set `maskTex.needsUpdate = true`. That's the whole trick.
+- **lat/lng → 3D is spherical coordinates.** `latLngToVector3()` in `lib/geo.ts` (your "try this" for today). Textures are equirectangular, so canvas x ∝ longitude, y ∝ latitude, and they line up with the 3D pins for free.
+- **the intro is a GSAP timeline over places.json.** Per place: turn the globe the shortest way round (`atan2(sin, cos)` wraps the angle), then scrub a progress value 0 → 1 that draws coin strokes nearest-first from the city, clipped to the country outline (`ctx.clip()`).
+- **inertia without a library.** Drag sets a velocity, every frame it's multiplied by 0.94 (friction). The damping uses `1 - 0.0025^delta` so it feels the same at 60 and 120fps. **Fundamental: frame-rate independent smoothing.**
+- **cheap by default.** three.js is a separate chunk (`next/dynamic`, `ssr: false`) that only loads 800px before the globe; the render loop is `"never"` when it's offscreen; textures are disposed on unmount.

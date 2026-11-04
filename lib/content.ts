@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import siteJson from "@/content/site.json";
 import winsJson from "@/content/wins.json";
 import placesJson from "@/content/places.json";
+import { CONTINENT } from "./geo";
 
 export type Site = typeof siteJson;
 
@@ -98,13 +99,6 @@ export function getWins(): { totalHackathons: number; wins: Win[] } {
 export function getPlaces(): Place[] {
   return placesJson;
 }
-
-const CONTINENT: Record<string, string> = {
-  IN: "asia",
-  AE: "asia",
-  CH: "europe",
-  US: "north america",
-};
 
 export function getTravelStats(places: Place[]) {
   const countries = new Set(places.map((p) => p.country));

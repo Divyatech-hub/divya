@@ -10,6 +10,7 @@ import { LightVisual } from "@/components/chapters/LightVisual";
 import { SoundVisual } from "@/components/chapters/SoundVisual";
 import { OrbitCalculator } from "@/components/chapters/OrbitCalculator";
 import { ObservatoryGrid } from "@/components/chapters/ObservatoryGrid";
+import { PaleBlueDot } from "@/components/chapters/PaleBlueDot";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 
 type Props = {
@@ -134,46 +135,14 @@ export function StoryView({ site, projects, wins, places, stats }: Props) {
         </div>
       </Chapter>
 
-      <WideChapter id="earth" number="5" title={c.earth.title} headline={c.earth.headline}>
-        <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-center">
-          <div className="relative mx-auto aspect-square w-full max-w-sm" aria-hidden="true">
-            {/* matte foil placeholder. the scratch-off globe replaces this */}
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: "radial-gradient(circle at 34% 30%, #c9a0ff, #6a4c9c 45%, #241a3a 80%)",
-                boxShadow: "inset -18px -24px 60px rgba(0,0,0,0.45), 0 0 80px rgba(201,160,255,0.18)",
-              }}
-            />
-            <span className="absolute inset-x-0 -bottom-8 text-center font-mono text-[10px] text-soft">
-              [ASSET: painting texture] scratch-off globe lands next
-            </span>
-          </div>
-          <div>
-            <p className="text-[17px] leading-relaxed text-soft">{c.earth.body}</p>
-            <dl className="mt-8 grid grid-cols-3 gap-4">
-              {[
-                ["countries", stats.countries],
-                ["cities", stats.cities],
-                ["continents", stats.continents],
-              ].map(([label, n]) => (
-                <div key={label} className="flex flex-col-reverse">
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-soft">{label}</dt>
-                  <dd className="font-serif text-5xl text-ink">{n}</dd>
-                </div>
-              ))}
-            </dl>
-            <ul className="mt-8 flex flex-wrap gap-2">
-              {places.map((p) => (
-                <li key={p.city} className="rounded-full border border-line px-3 py-1.5 text-sm lowercase text-ink">
-                  {p.city}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 font-mono text-sm text-accent">goal: {c.earth.goal}</p>
-          </div>
-        </div>
-      </WideChapter>
+      <PaleBlueDot
+        title={c.earth.title}
+        headline={c.earth.headline}
+        body={c.earth.body}
+        goal={c.earth.goal}
+        places={places}
+        work={Object.fromEntries(projects.filter((p) => p.hero).map((p) => [p.slug, p.title.toLowerCase()]))}
+      />
 
       <WideChapter id="observatory" number="6" title={c.observatory.title} headline={c.observatory.headline}>
         <p className="max-w-2xl text-[17px] leading-relaxed text-soft">{c.observatory.body}</p>
